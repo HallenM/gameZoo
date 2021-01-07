@@ -12,7 +12,7 @@ public:
 		satiety = 0;
 	}
 
-	virtual ~Sheep() {}
+	~Sheep() {}
 
 	bool eatFood(string food_type)
 	{
