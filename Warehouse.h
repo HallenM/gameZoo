@@ -48,7 +48,7 @@ public:
 	{
 		for (int i = 0; i < foodOnW.size(); i++) {
 			if (foodOnW[i].type == typeFood) {
-				// Невозможно отрицательное значение, поэтому >= countFood
+				// РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ, РїРѕСЌС‚РѕРјСѓ >= countFood
 				if (foodOnW[i].count >= countFood) {
 					foodOnW[i].count -= countFood;
 					return true;
