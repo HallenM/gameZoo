@@ -12,7 +12,7 @@ public:
 		satiety = 0;
 	}
 
-	virtual ~Monkey() {}
+	~Monkey() {}
 
 	bool eatFood(string food_type)
 	{
