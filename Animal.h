@@ -10,11 +10,11 @@ protected:
 	//string foodType;
 	int foodCount;
 	int age;
-	//int maxAge; // максимальный у менеджера как и тип еды (не сделано)
+	//int maxAge; // РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ Сѓ РјРµРЅРµРґР¶РµСЂР° РєР°Рє Рё С‚РёРї РµРґС‹ (РЅРµ СЃРґРµР»Р°РЅРѕ)
 	int satiety;
 
 public:
-	bool eatFood(string food_type) { return false; }
+	virtual bool eatFood(string food_type) = 0;
 
 	bool spawned()
 	{
@@ -31,9 +31,9 @@ public:
 		return false;
 	}
 
-	void grow()	{ }
+	virtual void grow() = 0;
 
-	bool death() {	return false; }
+	virtual bool death() = 0;
 
 	void digestFood()
 	{
@@ -49,4 +49,6 @@ public:
 	{
 		return foodCount;
 	}
+	
+	virtual ~Animal() {}
 };
