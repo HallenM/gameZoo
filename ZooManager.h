@@ -43,7 +43,8 @@ public:
 
 	void infoAboutCage(int nCage, string &nameAnimal, int &countAnimal, string &foodInCage)
 	{
-		cages[nCage].getAnimalInfo(nameAnimal, countAnimal);
+		nameAnimal = cages[nCage].getNameAnimal();
+		countAnimal = cages[nCage].getCountAnimal();
 		foodInCage = cages[nCage].getFoodInCage();
 	}
 
@@ -104,25 +105,28 @@ public:
 	{
 		string result = "";
 		for (int i = 0; i < cages.size(); i++) {
-			int deathWithoutFood = 0, deathFromOldAge = 0, spawned = 0, nCage;
-			string typeFood, name;
-			cages[i].getAnimalInfo(name, nCage);
-			typeFood = info[name];
-			cages[i].actionWithAnimal(deathWithoutFood, deathFromOldAge, spawned, typeFood);
-			nCage = i + 1;
-			if (deathWithoutFood != 0) {
-				result += to_string(deathWithoutFood) + " " + name + " starved to death in Enclosure " + to_string(nCage) + ".\n";
+			int countAnimal = cages[i].getCountAnimal();
+			if (countAnimal != 0) {
+				int deathWithoutFood = 0, deathFromOldAge = 0, spawned = 0, nCage;
+				string typeFood, name;
+				name = cages[i].getNameAnimal();
+				typeFood = info[name];
+				cages[i].actionWithAnimal(deathWithoutFood, deathFromOldAge, spawned, typeFood);
+				nCage = i + 1;
+				if (deathWithoutFood != 0) {
+					result += to_string(deathWithoutFood) + " " + name + " starved to death in Enclosure " + to_string(nCage) + ".\n";
+				}
+				if (deathFromOldAge != 0) {
+					result += to_string(deathFromOldAge) + " " + name + " died of old age in Enclosure " + to_string(nCage) + ".\n";
+				}
+				if (spawned != 0) {
+					result += to_string(spawned) + " " + name + " spawned in Enclosure " + to_string(nCage) + ".\n";
+				}
+				if (i == cages.size() - 1) {
+					result += "\n";
+				}
+				cages[i].clearCage();
 			}
-			if (deathFromOldAge != 0) {
-				result += to_string(deathFromOldAge) + " " + name + " died of old age in Enclosure " + to_string(nCage) + ".\n";
-			}
-			if (spawned != 0) {
-				result += to_string(spawned) + " " + name + " spawned in Enclosure " + to_string(nCage) + ".\n";
-			}
-			if (i == cages.size() - 1) {
-				result += "\n";
-			}
-			cages[i].clearCage();
 		}
 		return result;
 	}
