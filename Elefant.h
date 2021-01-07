@@ -12,6 +12,8 @@ public:
 		satiety = 0;
 	}
 
+	virtual ~Elefant() {}
+
 	bool eatFood(string food_type)
 	{
 		if (food_type == "hay") {
@@ -37,13 +39,4 @@ public:
 			age++;
 		}
 	}
-
-	/*bool eatFood(string food_type)
-	{
-	if (food_type == "fruit") {
-	satiety += foodCount;
-	return true;
-	}
-	return false;
-	}*/
 };
