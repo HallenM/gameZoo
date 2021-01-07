@@ -12,6 +12,8 @@ public:
 		satiety = 0;
 	}
 
+	virtual ~Lion() {}
+
 	bool eatFood(string food_type)
 	{
 		if (food_type == "meat") {
