@@ -115,6 +115,7 @@ public:
 	void actionWithAnimal(int &deathWithoutFood, int &deathFromOldAge, int &spawned, string typeFood)
 	{
 		int foodCount = animals[0]->getFoodCount();
+		string name = animals[0]->getName();
 		// Первая кормёжка
 		feedAnimal(foodCount, typeFood, deathWithoutFood);
 		if (deathWithoutFood != 0) {
@@ -146,7 +147,7 @@ public:
 			countForNotSpawned = 0;
 		}
 
-		string name = animals[0]->getName();
+		// Размножение
 		for (int i = 0; i < spawned; i++) {
 			spawn(name);
 		}
@@ -211,10 +212,19 @@ public:
 		foodInCage.clear();
 	}
 
-	void getAnimalInfo(string &name, int &count)
+	string getNameAnimal()
 	{
-		name = animals[0]->getName();
-		count = animals.size();
+		if (animals.size() != 0) {
+			return animals[0]->getName();
+		}
+		else {
+			return "";
+		}
+	}
+
+	int getCountAnimal()
+	{
+		return animals.size();
 	}
 
 	string getFoodInCage()
