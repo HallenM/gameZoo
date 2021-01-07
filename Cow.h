@@ -12,6 +12,8 @@ public:
 		satiety = 0;
 	}
 
+	virtual ~Cow() {}
+
 	bool eatFood(string food_type)
 	{
 		if (food_type == "hay") {
@@ -24,9 +26,9 @@ public:
 	bool death()
 	{
 		if (age == 25) {
-			int randValue = rand() % 1;
-			if (randValue == 1) return true;
-			if (randValue == 0) return false;
+			int randValue = 1 + rand() % 2;
+			if (randValue == 2) return true;
+			if (randValue == 1) return false;
 		}
 		return false;
 	}
