@@ -81,13 +81,19 @@ public:
 	string sellAnimal(string typeAnimal, int countAnimal, int nCage)
 	{
 		string result = "";
-		int price = cages[nCage - 1].sellAnimal(countAnimal, typeAnimal);
-		if (price != 0) {
-			money += price;
-			result = "success";
+		int count = cages[nCage - 1].getCountAnimal();
+		if (count != 0) {
+			int price = cages[nCage - 1].sellAnimal(countAnimal, typeAnimal);
+			if (price != 0) {
+				money += price;
+				result = "success";
+			}
+			else {
+				result = "Not enough \"" + typeAnimal + "\" or don't exist this type of animal in " + to_string(nCage) + " cage.";
+			}
 		}
 		else {
-			result = "Not enough \"" + typeAnimal + "\" or don't exist this type of animal in " + to_string(nCage) + " cage.";
+			result = "Not enough \"" + typeAnimal + "\" in " + to_string(nCage) + " cage.";
 		}
 		return result;
 	}
