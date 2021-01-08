@@ -58,12 +58,13 @@ public:
 		return false;
 	}
 
-	string getCountSpecificFood(string typeFood)
+	int getCountSpecificFood(string typeFood)
 	{
 		for (int i = 0; i < foodOnW.size(); i++) {
 			if (foodOnW[i].type == typeFood) {
-				return to_string(foodOnW[i].count);
+				return foodOnW[i].count;
 			}
 		}
+		return 0;
 	}
 };
