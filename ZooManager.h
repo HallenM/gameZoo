@@ -74,8 +74,8 @@ public:
 
 	string getInfoWarehouse()
 	{
-		return "meat: " + warehouse.getCountSpecificFood("meat") + ",\thay: " + warehouse.getCountSpecificFood("hay") +
-			",\tfruit: " + warehouse.getCountSpecificFood("fruit") + ",\tgrain: " + warehouse.getCountSpecificFood("grain") + ".";
+		return "meat: " + to_string(warehouse.getCountSpecificFood("meat")) + ",\thay: " + to_string(warehouse.getCountSpecificFood("hay")) +
+			",\tfruit: " + to_string(warehouse.getCountSpecificFood("fruit")) + ",\tgrain: " + to_string(warehouse.getCountSpecificFood("grain")) + ".";
 	}
 
 	string sellAnimal(string typeAnimal, int countAnimal, int nCage)
