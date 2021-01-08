@@ -227,22 +227,9 @@ public:
 		return animals.size();
 	}
 
-	string getFoodInCage()
+	vector<Food> getFoodInCage()
 	{
-		string food = "";
-		if (foodInCage.size() == 1) {
-			food += to_string(foodInCage[0].count) + " " + foodInCage[0].type;
-		}
-		else if (foodInCage.size() > 1) {
-			for (int i = 0; i < foodInCage.size(); i++) {
-				food += to_string(foodInCage[i].count) + " " + foodInCage[i].type + ", ";
-			}
-			food.erase(food.size() - 2); // delete 2 last symbols ("," and " ")
-		}
-		else {
-			food = "no";
-		}
-		return food;
+		return foodInCage;
 	}
 
 	int sellAnimal(int countAnimal, string typeAnimal)
