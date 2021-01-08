@@ -41,11 +41,30 @@ public:
 		}
 	}
 
+	string getFoodInCage(int nCage)
+	{
+		string food = "";
+		vector<Food> foodInCage = cages[nCage].getFoodInCage();
+		if (foodInCage.size() == 1) {
+			food += to_string(foodInCage[0].count) + " " + foodInCage[0].type;
+		}
+		else if (foodInCage.size() > 1) {
+			for (int i = 0; i < foodInCage.size(); i++) {
+				food += to_string(foodInCage[i].count) + " " + foodInCage[i].type + ", ";
+			}
+			food.erase(food.size() - 2); // delete 2 last symbols ("," and " ")
+		}
+		else {
+			food = "no";
+		}
+		return food;
+	}
+
 	void infoAboutCage(int nCage, string &nameAnimal, int &countAnimal, string &foodInCage)
 	{
 		nameAnimal = cages[nCage].getNameAnimal();
 		countAnimal = cages[nCage].getCountAnimal();
-		foodInCage = cages[nCage].getFoodInCage();
+		foodInCage = getFoodInCage(nCage);
 	}
 
 	string getFoodType(string name) 
